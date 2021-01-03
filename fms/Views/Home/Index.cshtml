@@ -1,0 +1,17 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model FileCreate
+@inject SignInManager<IdentityUser> SignInManager
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<div>
+
+    <a class="btn  btn-primary" asp-controller="home" asp-action="upload">Upload</a>
+    <a class="btn  btn-primary" asp-controller="home" asp-action="all">See all files</a>
+
+    
+
+</div>

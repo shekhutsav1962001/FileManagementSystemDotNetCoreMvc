@@ -1,0 +1,53 @@
+﻿@model IEnumerable<fms.Models.User>
+    <input type="text" id="myInput" placeholder="Search user...." class="form-control" autocomplete="off">
+<table class="table" style="margin-top:20px;">
+    <thead>
+        <tr>
+            <th class="text-xl-center" scope="col">#</th>
+            <th class="text-xl-center" scope="col">User Name</th>
+            <th class="text-xl-center" scope="col">Block/Unblock</th>
+          
+        </tr>
+    </thead>
+    <tbody>
+
+        @{int i = 1;}
+        @foreach (var item in Model)
+        {
+
+        <tr class="rw">
+            <th class="text-xl-center" scope="row">@i</th>
+            @{i++;}
+            <td class="text-xl-center files">@item.Email</td>
+
+
+            @if (item.blocked)
+            {
+                
+                <td class="text-xl-center">
+                
+                    <a class="btn btn-light" asp-action="unblock" asp-route-id="@item.Id">
+                        
+                        <b>unblock</b>
+
+                    </a>
+                </td>
+            }
+            else
+            {
+            <td class="text-xl-center">
+                <a class="btn btn-light" asp-action="block" asp-route-id="@item.Id">
+                   <b> block</b>
+                </a>
+            </td>
+            }
+
+          
+        </tr>
+
+
+        }
+
+    </tbody>
+</table>
+

@@ -1,0 +1,59 @@
+﻿@model IEnumerable<fms.Models.Uploadfile>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="myInput1">Username</label>
+            <input type="text" class="form-control" id="myInput1" placeholder="Search with username...." >
+        </div>
+        <div class="form-group col-md-6">
+            <label for="myInput">Filename</label>
+            <input type="text" class="form-control" id="myInput" placeholder="Search with filename...."  >
+        </div>
+    </div>
+
+
+<table class="table" style="margin-top:20px;">
+    <thead>
+        <tr>
+            <th class="text-xl-center" scope="col">#</th>
+            <th class="text-xl-center" scope="col">Username</th>
+            <th class="text-xl-center" scope="col">File Name</th>
+            <th class="text-xl-center" scope="col">Delete</th>
+            <th class="text-xl-center" scope="col">Download</th>
+         
+        </tr>
+    </thead>
+    <tbody>
+
+
+
+            @foreach (var item in Model)
+        {
+
+        <tr class="rw">
+            <th class="text-xl-center" scope="row"><i class="fa fa-file" aria-hidden="true"></i></th>
+
+            <td class="text-xl-center users">@item.Email</td>
+
+
+
+
+            <td class="text-xl-center files">@item.filepath</td>
+
+
+
+            <td class="text-xl-center"><a asp-action="Delete" asp-route-id="@item.Id"><i class="fa fa-trash-o btn btn-danger" aria-hidden="true"></i></a></td>
+
+
+
+            <td class="text-xl-center"><a asp-action="Download" asp-route-id="@item.Id"><i class="fa fa-download btn btn-primary" aria-hidden="true"></i></a></td>
+
+           
+
+        </tr>
+
+
+        }
+
+    </tbody>
+</table>
+
